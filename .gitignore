@@ -11,3 +11,4 @@ node_modules
 WebContent/style.css
 root.css.map
 .sass-cache
+jshint.debug.txt
