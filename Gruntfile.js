@@ -2,14 +2,15 @@
 
 var sourceScript = require('./WebContent/lib/preload.js').jsFiles;
 var sourceStyle = require('./WebContent/lib/preload.js').cssFiles;
-var sourceScriptJs=[];
+var sourceScriptJs = [];
+var sourceStyleCss = [];
 var sourceScriptJshint = (function(sourceScript) {
     var resultData = [];
     var flag = 0;
     for (; flag < sourceScript.length; flag++) {
 
         resultData.push("./WebContent/" + sourceScript[flag]);
-        if(!/^lib\/min/.test(sourceScript[flag])){
+        if (!/^lib\/min/.test(sourceScript[flag])) {
             sourceScriptJs.push("./WebContent/" + sourceScript[flag]);
         }
     }
@@ -21,7 +22,9 @@ var sourceStyleCsshint = (function(sourceStyle) {
     for (; flag < sourceStyle.length; flag++) {
 
         resultData.push("./WebContent/" + sourceStyle[flag]);
-
+        if (!/^style\/min/.test(sourceStyle[flag])) {
+            sourceStyleCss.push("./WebContent/" + sourceStyle[flag]);
+        }
     }
     return resultData;
 })(sourceStyle);
@@ -69,10 +72,11 @@ module.exports = function(grunt) {
                 "undef": true,
                 "globals": {
                     "$$": true,
-                    "module":true,
+                    "module": true,
                     "window": true,
                     "CryptoJS": true,
                     "mapp": true,
+                    "libapp": true,
                     "Luna": true,
                     "FormData": true,
                     "setTimeout": true,
@@ -113,7 +117,7 @@ module.exports = function(grunt) {
             options: {
                 csslintrc: '.csslint'
             },
-            target: sourceStyleCsshint
+            target: sourceStyleCss
 
         },
         cssmin: {

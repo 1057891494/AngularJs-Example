@@ -1,0 +1,37 @@
+$color:#607D8B;
+.login-view {
+    width: 3rem;
+    line-height: .4rem;
+    padding: .1rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: .1rem;
+    color: $color;
+    &>header {
+        text-align: center;
+    }
+    &>form {
+        &>.container {
+            &>.row {
+                &>div {
+                    &>label {
+                        width: 25%;
+                        text-align: right;
+                        display: inline-block;
+                        padding-right: .1rem;
+                    }
+                    &>input {
+                        border-radius: .05rem;
+                        border: 1px solid $color;
+                        padding-left: .05rem;
+                        background-color: #fff;
+                        font-size: .13rem;
+                        height: .29rem;
+                        width: 60%;
+                        outline: none;
+                    }
+                }
+            }
+        }
+    }
+}

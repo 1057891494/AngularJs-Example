@@ -5,17 +5,19 @@
 (function() {
     var cssFiles = [
         'style/min/butterfly.min.css', /*初始化基础样式*/
-        'style/min/root.css' /*自定义样式*/
+        'style/min/root.css', /*自定义样式*/
+        'style/min/ngDialog.css' /*弹框样式*/
     ];
     var jsFiles = [
         /*基础文件*/
-        'lib/min/luna.js',
-        'lib/min/angular.js',
+        'lib/min/luna.js', //工具库
+        'lib/min/angular.js', //框架
         /*插件 */
-        'lib/min/angular.ui-router.js', //ui-router
+        'lib/min/angular.ui-router.js', //路由
+        'lib/min/ngDialog.js', //弹框
 
         /*配置文件 */
-        'lib/ng-config.js' //启动配置文件
+        'lib/ng-config.js', //启动配置文件
 
         /*过滤器*/
 
@@ -24,7 +26,8 @@
 
 
         /*指令文件 */
-
+        'lib/module/directive/ui-star.js', //提示必输
+        'lib/module/directive/ui-submit.js' //表单校验提示
     ];
 
     if (typeof exports != 'undefined') {

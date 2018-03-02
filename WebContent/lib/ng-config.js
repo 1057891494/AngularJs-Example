@@ -11,7 +11,7 @@ var libapp = angular.module('startapp.libapp', []);
 var ctrlapp = angular.module('startapp.ctrlapp', []);
 
 //主模块定义（同时引入需要的模块）
-var startapp = angular.module('startapp', ['startapp.libapp', 'startapp.ctrlapp', 'ui.router']);
+var startapp = angular.module('startapp', ['startapp.libapp', 'startapp.ctrlapp', 'ui.router', 'ngDialog']);
 
 /**
  * --------------------------------------
@@ -26,7 +26,7 @@ startapp.config(['$stateProvider', '$urlRouterProvider', '$controllerProvider', 
     console.debug("[" + new Date() + "] >>配置主模块");
 
     //定义需要使用的方法
-    startapp.register = {
+    ctrlapp.register = {
         controller: $controllerProvider.register,
         directive: $compileProvider.directive,
         filter: $filterProvider.register,
@@ -58,12 +58,44 @@ startapp.config(['$stateProvider', '$urlRouterProvider', '$controllerProvider', 
             delay: startapp.asyncjs('html/login/mod.js')
         },
         controller: "LoginController"
+    }).state("main", { //主页面
+        url: "/main",
+        templateUrl: "html/main/mod.html",
+        resolve: {
+            delay: startapp.asyncjs('html/main/mod.js')
+        },
+        controller: "MainController"
     });
 
     $urlRouterProvider.otherwise("/login");
 
-}]).run(['$rootScope', function($rootScope) {
+}]).run(['ngDialog', '$rootScope', function(ngDialog, $rootScope) {
     "use strict";
+
+    /**
+     *
+     * @param {string:提示级别} type
+     * @param {string:提示内容} info
+     *
+     * 提示级别分为三类：
+     * 'info':普通
+     * 'warn':警告
+     * 'error':错误
+     */
+    $rootScope.toast = function(type, info) {
+        (function(type, info) {
+            ngDialog.open({
+                template: 'html/common/toast.html',
+                className: "toast " + type + "-level",
+                controller: ['$scope', function($scope) {
+                    $scope.toast_info = info;
+                    window.setTimeout(function() {
+                        $scope.closeThisDialog();
+                    }, 1000);
+                }]
+            });
+        })(type, info);
+    };
 
     console.debug("[" + new Date() + "] >>启动主模块");
 

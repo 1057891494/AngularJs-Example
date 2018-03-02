@@ -1,5 +1,5 @@
-startapp.register.controller('LoginController', ['$scope', function($scope) {
-    $scope.initMethod = function() {
-        console.debug('执行登录页面初始化方法！');
+ctrlapp.register.controller('LoginController', ['$scope', '$state', function($scope, $state) {
+    $scope.login = function() {
+        $state.go('main');
     };
 }]);

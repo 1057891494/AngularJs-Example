@@ -6,8 +6,216 @@
     公共样式
     -------------------------------------------
 */
+.submit-gray {
+  background-color: #c6c6c6;
+  border: 1px solid #c6c6c6;
+  color: #ffffff; }
+
+.btn-list {
+  text-align: center;
+  line-height: .5rem; }
+  .btn-list .btn {
+    height: .30rem;
+    line-height: .26rem;
+    float: none;
+    border-radius: .05rem;
+    text-align: center;
+    font-size: .14rem;
+    width: 1rem;
+    cursor: pointer; }
+    .btn-list .btn.btn-submit {
+      border: 1px solid #378bd3;
+      background: #378bd3;
+      color: #fff;
+      margin: 0 .2rem 0 .2rem; }
+      .btn-list .btn.btn-submit.submit-gray {
+        background-color: #6da7d1;
+        border: 1px solid #6da7d1;
+        color: #ffffff; }
+
+label {
+  position: relative; }
+
+.ui-star-red {
+  color: red;
+  position: absolute;
+  right: 0; }
+
 /*
     -------------------------------------------
     登录页面
     -------------------------------------------
 */
+.login-view {
+  width: 3rem;
+  line-height: .4rem;
+  padding: .1rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: .1rem;
+  color: #607D8B; }
+  .login-view > header {
+    text-align: center; }
+  .login-view > form > .container > .row > div > label {
+    width: 25%;
+    text-align: right;
+    display: inline-block;
+    padding-right: .1rem; }
+  .login-view > form > .container > .row > div > input {
+    border-radius: .05rem;
+    border: 1px solid #607D8B;
+    padding-left: .05rem;
+    background-color: #fff;
+    font-size: .13rem;
+    height: .29rem;
+    width: 60%;
+    outline: none; }
+
+/*
+    -------------------------------------------
+    首页
+    -------------------------------------------
+*/
+/*
+    -------------------------------------------
+    一些公共提示弹框等
+    -------------------------------------------
+*/
+.toast {
+  text-align: right;
+  padding: 0 .1rem 0 .1rem; }
+  .toast > .ngdialog-overlay {
+    display: none; }
+  .toast > .ngdialog-content {
+    display: inline-block;
+    top: .6rem;
+    position: relative;
+    line-height: 2em;
+    padding: 0 1em 0 1em;
+    border-radius: .05rem;
+    color: white; }
+    .toast > .ngdialog-content > .ngdialog-close {
+      display: none; }
+  .toast.info-level > .ngdialog-content {
+    background-color: #607D8B; }
+  .toast.warn-level > .ngdialog-content {
+    background-color: #f2dc16; }
+  .toast.error-level > .ngdialog-content {
+    background-color: #E91E63; }
+
+@-webkit-keyframes ngdialog-fadeout {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes ngdialog-fadeout {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes ngdialog-fadein {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes ngdialog-fadein {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.ngdialog {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.ngdialog *,
+.ngdialog *:before,
+.ngdialog *:after {
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+}
+
+.ngdialog {
+  position: fixed;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  z-index: 10000;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.ngdialog.ngdialog-disabled-animation,
+.ngdialog.ngdialog-disabled-animation .ngdialog-overlay,
+.ngdialog.ngdialog-disabled-animation .ngdialog-content {
+  -webkit-animation: none!important;
+  animation: none!important;
+}
+
+.ngdialog-overlay {
+  position: fixed;
+  background: rgba(0, 0, 0, 0.4);
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  -webkit-backface-visibility: hidden;
+  -webkit-animation: ngdialog-fadein 0.5s;
+  animation: ngdialog-fadein 0.5s;
+}
+
+.ngdialog-no-overlay {
+  pointer-events: none;
+}
+
+.ngdialog.ngdialog-closing .ngdialog-overlay {
+  -webkit-backface-visibility: hidden;
+  -webkit-animation: ngdialog-fadeout 0.5s;
+  animation: ngdialog-fadeout 0.5s;
+}
+
+.ngdialog-content {
+  background: white;
+  -webkit-backface-visibility: hidden;
+  -webkit-animation: ngdialog-fadein 0.5s;
+  animation: ngdialog-fadein 0.5s;
+  pointer-events: all;
+}
+
+.ngdialog.ngdialog-closing .ngdialog-content {
+  -webkit-backface-visibility: hidden;
+  -webkit-animation: ngdialog-fadeout 0.5s;
+  animation: ngdialog-fadeout 0.5s;
+}
+
+.ngdialog-close:before {
+  font-family: 'Helvetica', Arial, sans-serif;
+  content: '\00D7';
+  cursor: pointer;
+}
+
+html.ngdialog-open,
+body.ngdialog-open {
+  overflow: hidden;
+}
