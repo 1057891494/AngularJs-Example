@@ -9,7 +9,6 @@
     ];
     var jsFiles = [
         /*基础文件*/
-        'lib/min/jquery.js',
         'lib/min/luna.js',
         'lib/min/angular.js',
         /*插件 */

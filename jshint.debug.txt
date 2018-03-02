@@ -1,77 +1,22 @@
 
-[1m   WebContent/lib/min/jquery.js[22m
-     47 |[90m    var arr = [];[39m
-             ^ Missing "use strict" statement.
-    738 |[90m        arr[ preferredDoc.childNodes.length ].nodeType;[39m
-                                                       ^ Expected an assignment or function call and instead saw an expression.
-   1176 |[90m            Expr.filter["ID"] = function( id ) {[39m
-                                ^ ['ID'] is better written in dot notation.
-   1182 |[90m            Expr.find["ID"] = function( id, context ) {[39m
-                              ^ ['ID'] is better written in dot notation.
-   1189 |[90m            Expr.filter["ID"] =  function( id ) {[39m
-                                ^ ['ID'] is better written in dot notation.
-   1200 |[90m            Expr.find["ID"] = function( id, context ) {[39m
-                              ^ ['ID'] is better written in dot notation.
-   1230 |[90m        Expr.find["TAG"] = support.getElementsByTagName ?[39m
-                          ^ ['TAG'] is better written in dot notation.
-   1262 |[90m        Expr.find["CLASS"] = support.getElementsByClassName && function( className, context ) {[39m
-                          ^ ['CLASS'] is better written in dot notation.
-   1726 |[90m                if ( matchExpr["CHILD"].test( match[0] ) ) {[39m
-                                       ^ ['CHILD'] is better written in dot notation.
-   2065 |[90m                    elem.parentNode.selectedIndex;[39m
-                                             ^ Expected an assignment or function call and instead saw an expression.
-   2086 |[90m                return !Expr.pseudos["empty"]( elem );[39m
-                                             ^ ['empty'] is better written in dot notation.
-   2160 |[90m    Expr.pseudos["nth"] = Expr.pseudos["eq"];[39m
-                         ^ ['nth'] is better written in dot notation.
-   2160 |[90m    Expr.pseudos["nth"] = Expr.pseudos["eq"];[39m
-                                               ^ ['eq'] is better written in dot notation.
-   2522 |[90m                    elems = seed || byElement && Expr.find["TAG"]( "*", outermost ),[39m
-                                                                   ^ ['TAG'] is better written in dot notation.
-   2677 |[90m                context = ( Expr.find["ID"]( token.matches[0].replace(runescape, funescape), context ) || [] )[0];[39m
-                                              ^ ['ID'] is better written in dot notation.
-   2690 |[90m            i = matchExpr["needsContext"].test( selector ) ? 0 : tokens.length;[39m
-                                  ^ ['needsContext'] is better written in dot notation.
-   2855 |[90m                return !!qualifier.call( elem, i, elem ) !== not;[39m
-                                ^ Confusing use of '!'.
-   3487 |[90m        } catch ( value ) {[39m
-                                 ^ Value of 'value' may be overwritten in IE 8 and earlier.
-   4017 |[90m        return owner.nodeType === 1 || owner.nodeType === 9 || !( +owner.nodeType );[39m
-                                                                        ^ Confusing use of '!'.
-   6944 |[90m                anim.done( function() {[39m
-                                    ^ Functions declared within loops referencing an outer scoped variable may lead to confusing semantics.
-   7682 |[90m                    parent.parentNode.selectedIndex;[39m
-                                               ^ Expected an assignment or function call and instead saw an expression.
-   7692 |[90m                    parent.selectedIndex;[39m
-                                    ^ Expected an assignment or function call and instead saw an expression.
-   7695 |[90m                        parent.parentNode.selectedIndex;[39m
-                                                   ^ Expected an assignment or function call and instead saw an expression.
-   8039 |[90m                        ) {[39m
-                                 ^ Expected a conditional expression and instead saw an assignment.
-     18 |[90m        if ( typeof module === "object" && typeof module.exports === "object" ) {[39m
-                                                           ^ 'module' is not defined.
-     27 |[90m            module.exports = global.document ?[39m
-                     ^ 'module' is not defined.
-  10178 |[90m    if ( typeof define === "function" && define.amd ) {[39m
-                                                  ^ 'define' is not defined.
-  10179 |[90m        define( "jquery", [], function() {[39m
-                 ^ 'define' is not defined.
 [1m   WebContent/lib/min/luna.js[22m
     116 |[90m                var [4mflag[24m = 0[39m
                                        ^ Missing semicolon.
+    822 |[90m            return (new Function("return " + "" + js + ""))();[39m
+                                         ^ The Function constructor is a form of eval.
       7 |[90m    } else if (typeof module === "object" && typeof module.exports === "object") {[39m
                                                              ^ 'module' is not defined.
     672 |[90m                $$($$this[flag]).html('');[39m
                          ^ '$$' is not defined.
-   1145 |[90m                                    tempLuna = $$(helpNodes[innerFlag][_inFlag_]).parent().filter(filterSelector);[39m
+   1152 |[90m                                    tempLuna = $$(helpNodes[innerFlag][_inFlag_]).parent().filter(filterSelector);[39m
                                                         ^ '$$' is not defined.
-   1160 |[90m                                    tempLuna = $$(helpNodes[innerFlag][_inFlag_]).prevAll(filterSelector);[39m
+   1167 |[90m                                    tempLuna = $$(helpNodes[innerFlag][_inFlag_]).prevAll(filterSelector);[39m
                                                         ^ '$$' is not defined.
-   1177 |[90m                                    tempLuna = $$(helpNodes[innerFlag][_inFlag_]).prev().filter(filterSelector);[39m
+   1184 |[90m                                    tempLuna = $$(helpNodes[innerFlag][_inFlag_]).prev().filter(filterSelector);[39m
                                                         ^ '$$' is not defined.
-   1192 |[90m                                    tempLuna = $$(helpNodes[innerFlag][_inFlag_]).parents(filterSelector);[39m
+   1199 |[90m                                    tempLuna = $$(helpNodes[innerFlag][_inFlag_]).parents(filterSelector);[39m
                                                         ^ '$$' is not defined.
-   1497 |[90m            var $$this = $$(this);[39m
+   1504 |[90m            var $$this = $$(this);[39m
                                   ^ '$$' is not defined.
 [1m   WebContent/lib/min/angular.js[22m
     217 |[90m      ? s.replace(/[A-Z]/g, function(ch) {return String.fromCharCode(ch.charCodeAt(0) | 32);})[39m
@@ -191,5 +136,7 @@
                        ^ 'angular' is not defined.
      15 |[90mvar startapp = angular.module('startapp', ['startapp.libapp', 'startapp.ctrlapp', 'ui.router']);[39m
                         ^ 'angular' is not defined.
+     41 |[90m                    $$.getScript(js, function() {[39m
+                             ^ '$$' is not defined.
 
-[31m>> [39m94 errors in 5 files
+[31m>> [39m68 errors in 4 files

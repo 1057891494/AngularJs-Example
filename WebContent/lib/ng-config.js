@@ -32,11 +32,13 @@ startapp.config(['$stateProvider', '$urlRouterProvider', '$controllerProvider', 
         factory: $provide.factory,
         service: $provide.service
     };
+
     startapp.asyncjs = function(js) {
         return function($q) {
+
             var delay = $q.defer(),
                 load = function() {
-                    $.getScript(js, function() {
+                    $$.getScript(js, function() {
                         delay.resolve();
                     });
                 };
