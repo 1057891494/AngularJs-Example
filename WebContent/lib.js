@@ -114,7 +114,7 @@
                 }
                 var nodes = Luna.sizzle(selector, context);
                 flag = 0;
-                var _flag_ = 0
+                var _flag_ = 0;
                 for (; flag < nodes.length; flag++) {
                     if (nodes[flag]) {
                         this[_flag_] = nodes[flag];
@@ -670,7 +670,7 @@
             var $$this = Luna(this),
                 flag;
             for (flag = 0; flag < $$this.length; flag++) {
-                $$($$this[flag]).html('');
+                Luna($$this[flag]).html('');
             }
             return $$this;
         },
@@ -1150,7 +1150,7 @@
                             num = 0;
                             if (!!helpNodes[innerFlag] && helpNodes[innerFlag].length > 0) {
                                 for (_inFlag_ = 0; _inFlag_ < helpNodes[innerFlag].length; _inFlag_++) { //检测判断是否合法路径，有一个合法即可
-                                    tempLuna = $$(helpNodes[innerFlag][_inFlag_]).parent().filter(filterSelector);
+                                    tempLuna = Luna(helpNodes[innerFlag][_inFlag_]).parent().filter(filterSelector);
                                     if (tempLuna.length > 0) {
                                         helpNodes[innerFlag][num] = tempLuna;
                                         num++;
@@ -1165,7 +1165,7 @@
                             if (!!helpNodes[innerFlag] && helpNodes[innerFlag].length > 0) {
                                 tempHelpNodes = [];
                                 for (_inFlag_ = 0; _inFlag_ < helpNodes[innerFlag].length; _inFlag_++) { //检测判断是否合法路径，有一个合法即可
-                                    tempLuna = $$(helpNodes[innerFlag][_inFlag_]).prevAll(filterSelector);
+                                    tempLuna = Luna(helpNodes[innerFlag][_inFlag_]).prevAll(filterSelector);
                                     for (tempFlag = 0; tempFlag < tempLuna.length; tempFlag++) {
                                         tempHelpNodes[num] = tempLuna[tempFlag];
                                         num++;
@@ -1182,7 +1182,7 @@
                             num = 0;
                             if (!!helpNodes[innerFlag] && helpNodes[innerFlag].length > 0) {
                                 for (_inFlag_ = 0; _inFlag_ < helpNodes[innerFlag].length; _inFlag_++) { //检测判断是否合法路径，有一个合法即可
-                                    tempLuna = $$(helpNodes[innerFlag][_inFlag_]).prev().filter(filterSelector);
+                                    tempLuna = Luna(helpNodes[innerFlag][_inFlag_]).prev().filter(filterSelector);
                                     if (tempLuna.length > 0) {
                                         helpNodes[innerFlag][num] = tempLuna;
                                         num++;
@@ -1197,7 +1197,7 @@
                             if (!!helpNodes[innerFlag] && helpNodes[innerFlag].length > 0) {
                                 tempHelpNodes = [];
                                 for (_inFlag_ = 0; _inFlag_ < helpNodes[innerFlag].length; _inFlag_++) { //检测判断是否合法路径，有一个合法即可
-                                    tempLuna = $$(helpNodes[innerFlag][_inFlag_]).parents(filterSelector);
+                                    tempLuna = Luna(helpNodes[innerFlag][_inFlag_]).parents(filterSelector);
                                     for (tempFlag = 0; tempFlag < tempLuna.length; tempFlag++) {
                                         tempHelpNodes[num] = tempLuna[tempFlag];
                                         num++;
@@ -1502,7 +1502,7 @@
          * 获取元素大小
          */
         "size": function(type) {
-            var $$this = $$(this);
+            var $$this = Luna(this);
             var elemHeight, elemWidth;
             if (type == 'content') { //内容
                 elemWidth = $$this[0].clientWidth - (($$this.css('padding-left') + "").replace('px', '')) - (($$this.css('padding-right') + "").replace('px', ''));
@@ -27372,13 +27372,6 @@ if (typeof module !== "undefined" && typeof exports !== "undefined" && module.ex
     .directive('ngView', $ViewDirective);
   })(window, window.angular);
 
-'use strict';
-/**
- * --------------------------------------
- * 模块定义
- * --------------------------------------
- */
-
 //工具模块定义
 var libapp = angular.module('startapp.libapp', []);
 
@@ -27396,9 +27389,11 @@ var startapp = angular.module('startapp', ['startapp.libapp', 'startapp.ctrlapp'
 
 //主模块
 startapp.config(['$stateProvider', '$urlRouterProvider', '$controllerProvider', "$compileProvider", "$filterProvider", "$provide", function($stateProvider, $urlRouterProvider, $controllerProvider, $compileProvider, $filterProvider, $provide) {
+    "use strict";
 
     console.debug("[" + new Date() + "] >>配置主模块");
 
+    //定义需要使用的方法
     startapp.register = {
         controller: $controllerProvider.register,
         directive: $compileProvider.directive,
@@ -27407,22 +27402,24 @@ startapp.config(['$stateProvider', '$urlRouterProvider', '$controllerProvider', 
         service: $provide.service
     };
 
+    //异步加载控制器文件
     startapp.asyncjs = function(js) {
-        return function($q) {
+        return ['$q', function($q) {
 
             var delay = $q.defer(),
                 load = function() {
-                    $$.getScript(js, function() {
+                    window.$$.getScript(js, function() {
                         delay.resolve();
                     });
                 };
             load();
             return delay.promise;
-        };
+        }];
     };
 
 
-    $stateProvider.state("login", { //目录
+    //定义路由
+    $stateProvider.state("login", { //登录页面
         url: "/login",
         templateUrl: "html/login/mod.html",
         resolve: {
@@ -27434,6 +27431,7 @@ startapp.config(['$stateProvider', '$urlRouterProvider', '$controllerProvider', 
     $urlRouterProvider.otherwise("/login");
 
 }]).run(['$rootScope', function($rootScope) {
+    "use strict";
 
     console.debug("[" + new Date() + "] >>启动主模块");
 
@@ -27441,10 +27439,12 @@ startapp.config(['$stateProvider', '$urlRouterProvider', '$controllerProvider', 
 
 //工具模块
 startapp.config(function() {
+    "use strict";
 
     console.debug("[" + new Date() + "] >>配置工具模块");
 
 }).run(function() {
+    "use strict";
 
     console.debug("[" + new Date() + "] >>启动工具模块");
 
@@ -27452,10 +27452,12 @@ startapp.config(function() {
 
 //控制器专用模块
 startapp.config(function() {
+    "use strict";
 
     console.debug("[" + new Date() + "] >>配置控制器专用模块");
 
 }).run(function() {
+    "use strict";
 
     console.debug("[" + new Date() + "] >>启动控制器专用模块");
 

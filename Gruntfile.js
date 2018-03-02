@@ -2,13 +2,16 @@
 
 var sourceScript = require('./WebContent/lib/preload.js').jsFiles;
 var sourceStyle = require('./WebContent/lib/preload.js').cssFiles;
+var sourceScriptJs=[];
 var sourceScriptJshint = (function(sourceScript) {
     var resultData = [];
     var flag = 0;
     for (; flag < sourceScript.length; flag++) {
 
         resultData.push("./WebContent/" + sourceScript[flag]);
-
+        if(!/^lib\/min/.test(sourceScript[flag])){
+            sourceScriptJs.push("./WebContent/" + sourceScript[flag]);
+        }
     }
     return resultData;
 })(sourceScript);
@@ -65,21 +68,22 @@ module.exports = function(grunt) {
                 "eqnull": true,
                 "undef": true,
                 "globals": {
-                    "$": true,
+                    "$$": true,
+                    "module":true,
                     "window": true,
                     "CryptoJS": true,
                     "mapp": true,
-                    "jQuery": true,
+                    "Luna": true,
                     "FormData": true,
                     "setTimeout": true,
                     "document": true,
-                    'vx': true,
+                    'angular': true,
                     "console": true
                 },
                 "force": true, // 强制执行，即使出现错误也会执行下面的任务
                 "reporterOutput": 'jshint.debug.txt' //将jshint校验的结果输出到文件
             },
-            afterconcat: sourceScriptJshint
+            afterconcat: sourceScriptJs
         },
         uglify: { //压缩代码
             options: {
