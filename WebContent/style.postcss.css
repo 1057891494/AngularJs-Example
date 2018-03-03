@@ -6,10 +6,10 @@
     公共样式
     -------------------------------------------
 */
-.btn-list {
+body .btn-list {
   text-align: center;
   line-height: .5rem; }
-  .btn-list .btn {
+  body .btn-list .btn {
     height: .30rem;
     line-height: .26rem;
     float: none;
@@ -18,23 +18,19 @@
     font-size: .14rem;
     width: 1rem;
     cursor: pointer; }
-    .btn-list .btn.btn-submit {
+    body .btn-list .btn.btn-submit {
       border: 1px solid #378bd3;
       background: #378bd3;
       color: #fff;
       margin: 0 .2rem 0 .2rem; }
-      .btn-list .btn.btn-submit.submit-gray {
+      body .btn-list .btn.btn-submit.submit-gray {
         background-color: #6da7d1;
         border: 1px solid #6da7d1;
         color: #ffffff; }
-
-.ui-star-red {
+body .ui-star-red {
   color: red;
   position: absolute;
   right: 0; }
-
-body {
-  min-height: 100vh; }
 
 /*
     -------------------------------------------
@@ -47,25 +43,21 @@ body {
   line-height: .4rem;
   margin-left: auto;
   margin-right: auto;
-  color: #607D8B;
+  color: #FFF;
   margin-top: 2rem;
-  position: relative;
-  -webkit-perspective: 500;
-          perspective: 500; }
+  position: relative; }
   .login-view > div {
-    -webkit-transition: 0.6s;
-    transition: 0.6s;
+    -webkit-transition: 1s;
+    transition: 1s;
     -webkit-transform-style: preserve-3d;
             transform-style: preserve-3d; }
     .login-view > div.rotate {
       -webkit-transform: rotateY(180deg);
               transform: rotateY(180deg); }
     .login-view > div > article {
-      -webkit-transform-style: preserve-3d;
-              transform-style: preserve-3d;
-      background-color: #dadaef;
-      -webkit-box-shadow: 0.1rem 0.1rem 0.3rem #aeaec7;
-              box-shadow: 0.1rem 0.1rem 0.3rem #aeaec7;
+      background-color: #000007;
+      -webkit-box-shadow: 0.1rem 0.1rem 0.3rem #020214;
+              box-shadow: 0.1rem 0.1rem 0.3rem #020214;
       -webkit-backface-visibility: hidden;
               backface-visibility: hidden;
       position: absolute;
@@ -92,9 +84,9 @@ body {
         padding-right: .1rem; }
       .login-view > div > article > form > .container > .row > div > input {
         border-radius: .05rem;
-        border: 1px solid #607D8B;
+        border: 1px solid #dadaf1;
         padding-left: .05rem;
-        background-color: #fff;
+        background-color: #faffbd;
         font-size: .13rem;
         height: .29rem;
         width: 60%;

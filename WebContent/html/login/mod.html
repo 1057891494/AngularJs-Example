@@ -9,13 +9,13 @@
                     <div class="row">
                         <div class="col-size-12">
                             <label for='username'>用户名</label>
-                            <input id='username' name='username' ng-model='username' type="text" ui-star required/>
+                            <input id='username' name='username' ng-model='username' type="text" ui-star required autocomplete="username" />
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-size-12">
                             <label for='password'>密码</label>
-                            <input id='password' name='password' ng-minlength="6" ng-maxlength="30" ng-model='password' type="password" ui-star required/>
+                            <input id='password' name='password' ng-minlength="6" ng-maxlength="30" ng-model='password' type="password" ui-star required autocomplete="current-password" />
                         </div>
                     </div>
                 </div>

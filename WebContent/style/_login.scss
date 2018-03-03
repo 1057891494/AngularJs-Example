@@ -1,4 +1,4 @@
-$color:#607D8B;
+$color:#FFF;
 .login-view {
     width: 3rem;
     height: 2.2rem;
@@ -8,17 +8,15 @@ $color:#607D8B;
     color: $color;
     margin-top: 2rem;
     position: relative;
-    perspective: 500;
     &>div {
-        transition: 0.6s;
+        transition: 1s;
         transform-style: preserve-3d;
         &.rotate {
             transform: rotateY(180deg);
         }
         &>article {
-            transform-style: preserve-3d;
-            background-color: #dadaef;
-            box-shadow: 0.1rem 0.1rem 0.3rem #aeaec7;
+            background-color: #000007;
+            box-shadow: 0.1rem 0.1rem 0.3rem #020214;
             backface-visibility: hidden;
             position: absolute;
             height: 2.2rem;
@@ -51,9 +49,9 @@ $color:#607D8B;
                             }
                             &>input {
                                 border-radius: .05rem;
-                                border: 1px solid $color;
+                                border: 1px solid #dadaf1;
                                 padding-left: .05rem;
-                                background-color: #fff;
+                                background-color: rgb(250, 255, 189);
                                 font-size: .13rem;
                                 height: .29rem;
                                 width: 60%;

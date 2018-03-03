@@ -1,37 +1,34 @@
-.btn-list {
-    //提交按钮
-    text-align: center;
-    line-height: .5rem;
-    .btn {
-        height: .30rem;
-        line-height: .26rem;
-        float: none;
-        border-radius: .05rem;
+body {
+    .btn-list {
+        //提交按钮
         text-align: center;
-        font-size: .14rem;
-        width: 1rem;
-        cursor: pointer;
-        &.btn-submit {
-            border: 1px solid #378bd3;
-            background: #378bd3;
-            color: #fff;
-            margin: 0 .2rem 0 .2rem;
-            &.submit-gray {
-                background-color: #6da7d1;
-                border: 1px solid #6da7d1;
-                color: #ffffff;
+        line-height: .5rem;
+        .btn {
+            height: .30rem;
+            line-height: .26rem;
+            float: none;
+            border-radius: .05rem;
+            text-align: center;
+            font-size: .14rem;
+            width: 1rem;
+            cursor: pointer;
+            &.btn-submit {
+                border: 1px solid #378bd3;
+                background: #378bd3;
+                color: #fff;
+                margin: 0 .2rem 0 .2rem;
+                &.submit-gray {
+                    background-color: #6da7d1;
+                    border: 1px solid #6da7d1;
+                    color: #ffffff;
+                }
             }
         }
     }
-}
-
-.ui-star-red {
-    //必输提示
-    color: red;
-    position: absolute;
-    right: 0;
-}
-
-body {
-    min-height: 100vh;
+    .ui-star-red {
+        //必输提示
+        color: red;
+        position: absolute;
+        right: 0;
+    }
 }
