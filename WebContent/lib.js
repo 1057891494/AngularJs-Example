@@ -28369,6 +28369,13 @@ startapp.config(['$stateProvider', '$urlRouterProvider', '$controllerProvider', 
             delay: startapp.asyncjs('html/main/mod.js')
         },
         controller: "MainController"
+    }).state("selfDirective", { //自定义指令
+        url: "/selfDirective",
+        templateUrl: "html/self-directive/mod.html",
+        resolve: {
+            delay: startapp.asyncjs('html/self-directive/mod.js')
+        },
+        controller: "SelfDirectiveController"
     });
 
     $urlRouterProvider.otherwise("/login");

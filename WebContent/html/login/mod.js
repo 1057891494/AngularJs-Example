@@ -1,4 +1,4 @@
-ctrlapp.register.controller('LoginController', ['$scope', '$state', function($scope, $state) {
+ctrlapp.register.controller('LoginController', ['$scope','$state', function($scope,$state) {
     $scope.initMethod = function() {
         $scope.isBackSpace = false;
     };
