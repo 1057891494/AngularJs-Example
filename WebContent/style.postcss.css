@@ -6,31 +6,47 @@
     公共样式
     -------------------------------------------
 */
-body .btn-list {
-  text-align: center;
-  line-height: .5rem; }
-  body .btn-list .btn {
-    height: .30rem;
-    line-height: .26rem;
-    float: none;
-    border-radius: .05rem;
+body {
+  min-height: 100vh; }
+  body .btn-list {
     text-align: center;
+    line-height: .5rem; }
+    body .btn-list .btn {
+      height: .30rem;
+      line-height: .26rem;
+      float: none;
+      border-radius: .05rem;
+      text-align: center;
+      font-size: .14rem;
+      width: 1rem;
+      cursor: pointer; }
+      body .btn-list .btn.btn-submit {
+        border: 1px solid #378bd3;
+        background: #378bd3;
+        color: #fff;
+        margin: 0 .2rem 0 .2rem; }
+        body .btn-list .btn.btn-submit.submit-gray {
+          background-color: #6da7d1;
+          border: 1px solid #6da7d1;
+          color: #ffffff; }
+  body .ui-star-red {
+    color: red;
+    position: absolute;
+    right: 0; }
+  body .github {
+    position: fixed;
+    background-color: #000005;
+    width: 2.4rem;
+    line-height: .3rem;
+    -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+    text-align: center;
+    top: .5rem;
+    right: -.5rem;
+    color: #ffffff;
     font-size: .14rem;
-    width: 1rem;
-    cursor: pointer; }
-    body .btn-list .btn.btn-submit {
-      border: 1px solid #378bd3;
-      background: #378bd3;
-      color: #fff;
-      margin: 0 .2rem 0 .2rem; }
-      body .btn-list .btn.btn-submit.submit-gray {
-        background-color: #6da7d1;
-        border: 1px solid #6da7d1;
-        color: #ffffff; }
-body .ui-star-red {
-  color: red;
-  position: absolute;
-  right: 0; }
+    border: 2px dashed #ffffff;
+    outline: 3px solid #000005; }
 
 /*
     -------------------------------------------
