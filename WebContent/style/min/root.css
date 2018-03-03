@@ -4,11 +4,6 @@
     公共样式
     -------------------------------------------
 */
-.submit-gray {
-  background-color: #c6c6c6;
-  border: 1px solid #c6c6c6;
-  color: #ffffff; }
-
 .btn-list {
   text-align: center;
   line-height: .5rem; }
@@ -31,13 +26,13 @@
         border: 1px solid #6da7d1;
         color: #ffffff; }
 
-label {
-  position: relative; }
-
 .ui-star-red {
   color: red;
   position: absolute;
   right: 0; }
+
+body {
+  min-height: 100vh; }
 
 /*
     -------------------------------------------
@@ -46,28 +41,62 @@ label {
 */
 .login-view {
   width: 3rem;
+  height: 2.2rem;
   line-height: .4rem;
-  padding: .1rem;
   margin-left: auto;
   margin-right: auto;
-  margin-top: .1rem;
-  color: #607D8B; }
-  .login-view > header {
-    text-align: center; }
-  .login-view > form > .container > .row > div > label {
-    width: 25%;
-    text-align: right;
-    display: inline-block;
-    padding-right: .1rem; }
-  .login-view > form > .container > .row > div > input {
-    border-radius: .05rem;
-    border: 1px solid #607D8B;
-    padding-left: .05rem;
-    background-color: #fff;
-    font-size: .13rem;
-    height: .29rem;
-    width: 60%;
-    outline: none; }
+  color: #607D8B;
+  margin-top: 2rem;
+  position: relative;
+  perspective: 500; }
+  .login-view > div {
+    transition: 0.6s;
+    transform-style: preserve-3d; }
+    .login-view > div.rotate {
+      transform: rotateY(180deg); }
+    .login-view > div > article {
+      transform-style: preserve-3d;
+      background-color: #dadaef;
+      box-shadow: 0.1rem 0.1rem 0.3rem #aeaec7;
+      backface-visibility: hidden;
+      position: absolute;
+      height: 2.2rem;
+      width: 3rem;
+      padding: .1rem;
+      border-radius: .1rem; }
+      .login-view > div > article > header {
+        text-align: center; }
+      .login-view > div > article:first-child {
+        transform: rotateY(0deg); }
+      .login-view > div > article:last-child {
+        transform: rotateY(-180deg);
+        cursor: pointer; }
+      .login-view > div > article > p {
+        text-indent: 2em; }
+      .login-view > div > article > form > .container > .row > div > label {
+        position: relative;
+        width: 25%;
+        text-align: right;
+        display: inline-block;
+        padding-right: .1rem; }
+      .login-view > div > article > form > .container > .row > div > input {
+        border-radius: .05rem;
+        border: 1px solid #607D8B;
+        padding-left: .05rem;
+        background-color: #fff;
+        font-size: .13rem;
+        height: .29rem;
+        width: 60%;
+        outline: none; }
+      .login-view > div > article > form > label {
+        color: #fff;
+        line-height: .14rem;
+        display: block;
+        height: .14rem;
+        font-size: .14rem;
+        text-align: right;
+        margin-top: .14rem;
+        cursor: pointer; }
 
 /*
     -------------------------------------------

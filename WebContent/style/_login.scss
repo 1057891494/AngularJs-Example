@@ -1,35 +1,76 @@
 $color:#607D8B;
 .login-view {
     width: 3rem;
+    height: 2.2rem;
     line-height: .4rem;
-    padding: .1rem;
     margin-left: auto;
     margin-right: auto;
-    margin-top: .1rem;
     color: $color;
-    &>header {
-        text-align: center;
-    }
-    &>form {
-        &>.container {
-            &>.row {
-                &>div {
-                    &>label {
-                        width: 25%;
-                        text-align: right;
-                        display: inline-block;
-                        padding-right: .1rem;
+    margin-top: 2rem;
+    position: relative;
+    perspective: 500;
+    &>div {
+        transition: 0.6s;
+        transform-style: preserve-3d;
+        &.rotate {
+            transform: rotateY(180deg);
+        }
+        &>article {
+            transform-style: preserve-3d;
+            background-color: #dadaef;
+            box-shadow: 0.1rem 0.1rem 0.3rem #aeaec7;
+            backface-visibility: hidden;
+            position: absolute;
+            height: 2.2rem;
+            width: 3rem;
+            padding: .1rem;
+            border-radius: .1rem;
+            &>header {
+                text-align: center;
+            }
+            &:first-child {
+                transform: rotateY(0deg);
+            }
+            &:last-child {
+                transform: rotateY(-180deg);
+                cursor: pointer;
+            }
+            &>p {
+                text-indent: 2em;
+            }
+            &>form {
+                &>.container {
+                    &>.row {
+                        &>div {
+                            &>label {
+                                position: relative;
+                                width: 25%;
+                                text-align: right;
+                                display: inline-block;
+                                padding-right: .1rem;
+                            }
+                            &>input {
+                                border-radius: .05rem;
+                                border: 1px solid $color;
+                                padding-left: .05rem;
+                                background-color: #fff;
+                                font-size: .13rem;
+                                height: .29rem;
+                                width: 60%;
+                                outline: none;
+                            }
+                        }
                     }
-                    &>input {
-                        border-radius: .05rem;
-                        border: 1px solid $color;
-                        padding-left: .05rem;
-                        background-color: #fff;
-                        font-size: .13rem;
-                        height: .29rem;
-                        width: 60%;
-                        outline: none;
-                    }
+                }
+                &>label {
+                    color: #fff;
+                    line-height: .14rem;
+                    display: block;
+                    height: .14rem;
+                    font-size: .14rem;
+                    text-align: right;
+                    margin-top: .14rem;
+                    cursor: pointer;
                 }
             }
         }
