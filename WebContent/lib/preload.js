@@ -27,6 +27,7 @@
 
         /*指令文件 */
         'lib/module/directive/ui-star.js', //提示必输
+        'lib/module/directive/ui-study.js', //指令学习
         'lib/module/directive/ui-submit.js' //表单校验提示
     ];
 

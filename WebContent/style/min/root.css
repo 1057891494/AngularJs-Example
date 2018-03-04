@@ -150,6 +150,25 @@ body {
 
 /*
     -------------------------------------------
+    例子页面
+    -------------------------------------------
+*/
+.directive-view .uiStudy {
+  text-align: center;
+  width: 3rem; }
+  .directive-view .uiStudy li {
+    text-align: left;
+    padding: .1rem;
+    line-height: .3rem;
+    background-color: gray;
+    margin: .1rem;
+    width: 3rem;
+    display: inline-block;
+    color: #fff;
+    cursor: pointer; }
+
+/*
+    -------------------------------------------
     一些公共提示弹框等
     -------------------------------------------
 */

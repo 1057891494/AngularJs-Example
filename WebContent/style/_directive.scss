@@ -1,0 +1,17 @@
+.directive-view {
+    .uiStudy {
+        text-align: center;
+        width: 3rem;
+        li{
+            text-align: left;
+            padding: .1rem;
+            line-height: .3rem;
+            background-color: gray;
+            margin: .1rem;
+            width: 3rem;
+            display: inline-block;
+            color:#fff;
+            cursor: pointer;
+        }
+    }
+}
