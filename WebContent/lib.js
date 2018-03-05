@@ -28376,6 +28376,13 @@ startapp.config(['$stateProvider', '$urlRouterProvider', '$controllerProvider', 
             delay: startapp.asyncjs('html/study-directive/mod.js')
         },
         controller: "StudyDirectiveController"
+    }).state("pcForm", { //pc版本的form表单提交例子
+        url: "/pcForm",
+        templateUrl: "html/pc-form/mod.html",
+        resolve: {
+            delay: startapp.asyncjs('html/pc-form/mod.js')
+        },
+        controller: "PcFormController"
     });
 
     $urlRouterProvider.otherwise("/login");
@@ -28621,6 +28628,50 @@ startapp.config(function() {
                 element.bind('blur', function() {
                     element.val(showFormat(element.val()));
                 });
+            }
+        };
+    }]);
+})(window, window.angular, window.Luna);
+
+(function(window, angular, $$) {
+    'use strict';
+    libapp.directive("uiShifts", ['$compile', '$rootScope', function($compile, $rootScope) {
+        return {
+            restrict: 'E',
+            scope: false,
+            link: function(scope, element, attrs) {
+                element = $$(element[0]);
+                var shifts = element.find('ui-shift');
+                var hadLoad = [];
+                var currentIndex = 1;
+                var flag = 0;
+                var currentPage;
+                var url;
+                scope.goShift = function(index) {
+                    if (index > shifts.length || index < 1) {
+                        throw new Error("[target=" + index + "]超过页面数目！");
+                    }
+                    $$(shifts[currentIndex - 1]).css('display', 'none');
+                    currentIndex = index;
+                    $$(shifts[currentIndex - 1]).css('display', 'block');
+                    if (!hadLoad[index - 1]) {
+                        currentPage = $$(shifts[index - 1]);
+                        url = "./" + currentPage.attr("src");
+                        (function(flag, currentPage) {
+                            $$.get(url, function(data) {
+                                hadLoad[index - 1] = true;
+                                currentPage.html(data);
+                                $compile(currentPage)(scope);
+                                if (flag == 0) {
+                                    currentPage.css('display', 'block');
+                                } else {
+                                    currentPage.css('display', 'none');
+                                }
+                            });
+                        })(flag, currentPage);
+                    }
+                };
+                scope.goShift(1);
             }
         };
     }]);

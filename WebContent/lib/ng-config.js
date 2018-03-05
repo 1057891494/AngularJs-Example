@@ -72,6 +72,13 @@ startapp.config(['$stateProvider', '$urlRouterProvider', '$controllerProvider', 
             delay: startapp.asyncjs('html/study-directive/mod.js')
         },
         controller: "StudyDirectiveController"
+    }).state("pcForm", { //pc版本的form表单提交例子
+        url: "/pcForm",
+        templateUrl: "html/pc-form/mod.html",
+        resolve: {
+            delay: startapp.asyncjs('html/pc-form/mod.js')
+        },
+        controller: "PcFormController"
     });
 
     $urlRouterProvider.otherwise("/login");
