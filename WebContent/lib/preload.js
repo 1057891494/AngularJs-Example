@@ -20,7 +20,7 @@
         'lib/ng-config.js', //启动配置文件
 
         /*过滤器*/
-
+        'lib/module/filter/numberChinese.js',//中国数字转换
 
         /*服务文件 */
 

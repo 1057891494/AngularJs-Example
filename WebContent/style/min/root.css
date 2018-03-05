@@ -208,6 +208,14 @@ body {
     width: calc(100% - 1.2rem);
     vertical-align: top; }
 
+.demo-filter .title {
+  padding: .1rem;
+  line-height: .4rem;
+  font-size: .2rem;
+  color: red; }
+.demo-filter ul {
+  padding: .1rem; }
+
 /*
     -------------------------------------------
     一些公共提示弹框等

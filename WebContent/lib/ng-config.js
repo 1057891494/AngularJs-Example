@@ -79,6 +79,13 @@ startapp.config(['$stateProvider', '$urlRouterProvider', '$controllerProvider', 
             delay: startapp.asyncjs('html/pc-form/mod.js')
         },
         controller: "PcFormController"
+    }).state("demoFilter", { //过滤器用例
+        url: "/demoFilter",
+        templateUrl: "html/demo-filter/mod.html",
+        resolve: {
+            delay: startapp.asyncjs('html/demo-filter/mod.js')
+        },
+        controller: "DemoFilterController"
     });
 
     $urlRouterProvider.otherwise("/login");

@@ -4,7 +4,7 @@
  * 2018-03-05
  *
  */
-(function(window, angular, $$) {
+(function(window, angular, $$,undefined) {
     'use strict';
     libapp.directive("uiShifts", ['$compile', '$rootScope', function($compile, $rootScope) {
         return {

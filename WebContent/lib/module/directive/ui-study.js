@@ -6,7 +6,7 @@
  *
  *
  */
-(function(window, angular, $$) {
+(function(window, angular, $$,undefined) {
     'use strict';
     libapp.directive("uiStudy", ['$rootScope', '$compile', '$http', function($rootScope, $compile, $http) {
         return {
