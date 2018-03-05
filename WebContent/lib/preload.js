@@ -27,6 +27,7 @@
 
         /*指令文件 */
         'lib/module/directive/ui-star.js', //提示必输
+        'lib/module/directive/ui-datepicker.js', //年月日日历指令
         'lib/module/directive/ui-study.js', //指令学习
         'lib/module/directive/ui-submit.js', //表单校验提示
         'lib/module/directive/ui-format.js', //视图和model直接的格式转换
