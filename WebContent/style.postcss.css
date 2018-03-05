@@ -168,6 +168,11 @@ body {
     例子页面
     -------------------------------------------
 */
+.directive-view label.title {
+  padding: .1rem;
+  line-height: .4rem;
+  font-size: .2rem;
+  color: red; }
 .directive-view .uiStudy {
   text-align: center;
   width: 3rem; }
@@ -181,6 +186,17 @@ body {
     display: inline-block;
     color: #fff;
     cursor: pointer; }
+.directive-view .line {
+  display: block;
+  margin: .1rem; }
+  .directive-view .line.input {
+    border-radius: .05rem;
+    border: 1px solid #dadaf1;
+    padding-left: .05rem;
+    font-size: .13rem;
+    height: .29rem;
+    width: 3rem;
+    outline: none; }
 
 /*
     -------------------------------------------

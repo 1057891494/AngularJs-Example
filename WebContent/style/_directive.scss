@@ -1,8 +1,16 @@
 .directive-view {
+    label {
+        &.title {
+            padding: .1rem;
+            line-height: .4rem;
+            font-size: .2rem;
+            color: red;
+        }
+    }
     .uiStudy {
         text-align: center;
         width: 3rem;
-        li{
+        li {
             text-align: left;
             padding: .1rem;
             line-height: .3rem;
@@ -10,8 +18,21 @@
             margin: .1rem;
             width: 3rem;
             display: inline-block;
-            color:#fff;
+            color: #fff;
             cursor: pointer;
         }
+    }
+    .line {
+        display: block;
+        margin: .1rem;
+       &.input{
+        border-radius: .05rem;
+        border: 1px solid #dadaf1;
+        padding-left: .05rem;
+        font-size: .13rem;
+        height: .29rem;
+        width: 3rem;
+        outline: none;
+       }
     }
 }

@@ -28369,13 +28369,13 @@ startapp.config(['$stateProvider', '$urlRouterProvider', '$controllerProvider', 
             delay: startapp.asyncjs('html/main/mod.js')
         },
         controller: "MainController"
-    }).state("selfDirective", { //自定义指令
-        url: "/selfDirective",
-        templateUrl: "html/self-directive/mod.html",
+    }).state("studyDirective", { //自定义指令
+        url: "/studyDirective",
+        templateUrl: "html/study-directive/mod.html",
         resolve: {
-            delay: startapp.asyncjs('html/self-directive/mod.js')
+            delay: startapp.asyncjs('html/study-directive/mod.js')
         },
-        controller: "SelfDirectiveController"
+        controller: "StudyDirectiveController"
     });
 
     $urlRouterProvider.otherwise("/login");
@@ -28478,10 +28478,15 @@ startapp.config(function() {
             restrict: 'E',
             template: '<ul class="uiStudy"><li>{{type}}</li><li>{{information}}</li><li ng-click="_useParentMethod()">点击我</li></ul>',
             replace: "true",
+            /*
+             * scope: true（非空），创建一个继承自父作用域的子作用域，这就意味着，子指令拥有了自己的作用域，同时可以访问父指令的作用域数据。
+             * scope: false（空值），不创建任何作用域，将父作用域当做当前作用域，这意味着，子指令对数据的任何修改都会影响父作用域。
+             * scope: {…}（对象），创建孤立作用域，这就意味着，与父作用域没有任何联系，具体的看下面给出的例子。
+             */
             scope: {
-                information: '=showinfo', //使用父作用域的一个属性
-                type: '@typeinfo', //传递一个字符串
-                _onSend: "&onSend" //使用&符号可以在其中调用父类的方法
+                information: '=showinfo', //双向绑定，使用父作用域的一个属性
+                type: '@typeinfo', //单向绑定，传递一个字符串
+                _onSend: "&onSend" //函数绑定，使用&符号可以在其中调用父类的方法
             },
             link: function($scope, element, attrs) {
                 console.log("简单的指令传值问题");
@@ -28550,6 +28555,71 @@ startapp.config(function() {
                         $scope.$eval(attrs.uiSubmit);
                         $scope.$apply();
                     }
+                });
+            }
+        };
+    }]);
+})(window, window.angular, window.Luna);
+
+(function(window, angular, $$) {
+    'use strict';
+    libapp.directive("uiFormat", ['$rootScope', '$compile', function($rootScope, $compile) {
+        return {
+            restrict: 'A',
+            scope: false,
+            require: "?ngModel",
+            link: function($scope, element, attrs, ctrl) {
+                element = $$(element[0]);
+                //显示样式
+                function showFormat(input) {
+                    input = input || " ";
+                    if (/^\d{4}-\d{2}-\d{2}$/.test(input)) {
+                        //todo
+                    } else if (/^\d{4}-\d{1}-\d{2}$/.test(input)) {
+                        input = input.replace(/(\d{4})-(\d{1})-(\d{2})/, '$1-0$2-$3');
+                    } else if (/^\d{4}-\d{2}-\d{1}$/.test(input)) {
+                        input = input.replace(/(\d{4})-(\d{2})-(\d{1})/, '$1-$2-$3');
+                    } else if (/^\d{4}-\d{1}-\d{1}$/.test(input)) {
+                        input = input.replace(/(\d{4})-(\d{1})-(\d{1})/, '$1-$2-$3');
+                    } else if (/\d{8}/) {
+                        input = input.replace(/(\d{4})(\d{2})(\d{2})/, '$1-$2-$3');
+                    }
+                    return input;
+                }
+
+                //数据样式
+                function dataFormat(input) {
+                    input = input || " ";
+                    if (/^\d{4}-\d{2}-\d{2}$/.test(input)) {
+                        input = input.replace(/-/g, '');
+                    } else if (/^\d{4}-\d{1}-\d{2}$/.test(input)) {
+                        input = input.replace(/-(\d)-/, "0$1");
+                    } else if (/^\d{4}-\d{2}-\d{1}$/.test(input)) {
+                        input = input.replace(/-(\d)$/, "0$1").replace(/-/, '');
+                    } else if (/^\d{4}-\d{1}-\d{1}$/.test(input)) {
+                        input = input.replace(/-/g, '0');
+                    }
+                    return input;
+                }
+                //数据到试图的数据格式化
+                ctrl.$formatters.unshift(function(input) {
+                    return showFormat(input);
+                });
+
+                //试图到数据的数据格式化
+                ctrl.$parsers.push(function(input) {
+                    return dataFormat(input);
+                });
+
+                //点击开启编辑模式
+                element.bind('click', function() {
+                    if (!/-/.test(element.val())) return;
+                    element.val(dataFormat(element.val()));
+                });
+
+                //离开关闭编辑模式
+                element.bind('blur', function() {
+                    element.val(showFormat(element.val()));
                 });
             }
         };
