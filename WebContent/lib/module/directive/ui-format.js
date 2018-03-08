@@ -6,7 +6,7 @@
  *
  *
  */
-(function(window, angular, $$) {
+(function(window, angular, $$,undefined) {
     'use strict';
     libapp.directive("uiFormat", ['$rootScope', '$compile', function($rootScope, $compile) {
         return {
