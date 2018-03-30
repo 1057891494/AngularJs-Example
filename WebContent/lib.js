@@ -28434,7 +28434,7 @@ startapp.config(['$stateProvider', '$urlRouterProvider', '$controllerProvider', 
 }]);
 
 //工具模块
-startapp.config(function() {
+libapp.config(function() {
     "use strict";
 
     console.debug("[" + new Date() + "] >>配置工具模块");
@@ -28447,7 +28447,7 @@ startapp.config(function() {
 });
 
 //控制器专用模块
-startapp.config(function() {
+ctrlapp.config(function() {
     "use strict";
 
     console.debug("[" + new Date() + "] >>配置控制器专用模块");

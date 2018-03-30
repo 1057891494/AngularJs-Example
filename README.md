@@ -17,4 +17,5 @@
 *   首先你需要确保安装了node.js和cnpm(不想安装也可以使用npm代替)，然后cnpm install，再运行npm run server就会自动打开本地访问页面。
 
 ### 开发说明
-*   如果想在调试本项目，按照本地访问结束操作后，运行npm start就可以放心的开发了，发布前运行npm run release会自动打包文件。
+*   如果想在调试本项目，按照本地访问结束操作后，确保安装了Ruby，然后安装了SASS(Ruby版本)。
+*   现在运行npm start就可以放心的开发了，发布前运行npm run release会自动打包文件。
